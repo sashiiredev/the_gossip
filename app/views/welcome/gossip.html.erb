@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <section class="container">
+      <div class="row mt-5 mb-3">
+        <div class="col">
+          <h1 class="text-center">Voici le gossip</h1>
+          <br><br>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <p class="card-text">
+            <h2><%= @goss.user.first_name %></h2>
+            <h4><%= @goss.content %></h4>
+          </p>
+          <br><br>
+          <p>Plus d'infos sur l'auteur ?</p>
+          <form action="/accueil/<%=@goss.id%>/<%=@goss.user.id%>" method="post">
+            <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+            <button type="submit" class="btn btn-primary" name="name" value="<%=@goss.user.id%>">Author</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
